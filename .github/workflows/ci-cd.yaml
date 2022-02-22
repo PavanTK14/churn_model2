@@ -32,17 +32,4 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -v
-    - name: Docker Login
-      env:
-        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: |
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-
-     - name: Building Docker Image
-       run: |
-         docker build . --file Dockerfile --tag vishnunagineni/churnmodel
-
-     - name: Pushing docker image
-       run: |
-         docker push ${{secrets.DOCKER_USERNAME}}/iriscicd
+    
